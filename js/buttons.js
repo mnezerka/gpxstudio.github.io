@@ -434,6 +434,13 @@ export default class Buttons {
 
                 // TILES
 
+                _this.mapyCz = L.tileLayer('https://mapserver.mapy.cz/turist-m/{z}-{x}-{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
+                    attribution: '&copy; <a href="https://www.seznam.cz/" target="_blank">Seznam.cz, a.s</a>',
+                    maxZoom: 20,
+                    maxNativeZoom: 19
+                });
+
                 _this.openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>',
                     maxZoom: 20,
@@ -487,6 +494,7 @@ export default class Buttons {
                         else if (mapSource == 'otm') _this.openTopoMap.addTo(_this.map);
                         else if (mapSource == 'ohm') _this.openHikingMap.addTo(_this.map);
                         else if (mapSource == 'cosm') _this.cyclOSM.addTo(_this.map);
+                        else if (mapSource == 'mapycz') _this.mapyCz.addTo(_this.map);
                         else if (mapSource == 'ign') _this.ignMap.addTo(_this.map);
                         else if (mapSource == 'outdoors' && urlParams.has('token') && _this.supportsWebGL()) _this.mapboxMap.addTo(_this.map);
                         else if (mapSource == 'satellite' && urlParams.has('token') && _this.supportsWebGL()) {
@@ -503,7 +511,8 @@ export default class Buttons {
                             "OpenStreetMap" : _this.openStreetMap,
                             "OpenTopoMap" : _this.openTopoMap,
                             "OpenHikingMap" : _this.openHikingMap,
-                            "CyclOSM" : _this.cyclOSM
+                            "CyclOSM" : _this.cyclOSM,
+                            "MapyCz" : _this.mapyCz
                         }).addTo(_this.map);
 
                         _this.addSwitchMapboxLayers();
@@ -512,7 +521,8 @@ export default class Buttons {
                             "OpenStreetMap" : _this.openStreetMap,
                             "OpenTopoMap" : _this.openTopoMap,
                             "OpenHikingMap" : _this.openHikingMap,
-                            "CyclOSM" : _this.cyclOSM
+                            "CyclOSM" : _this.cyclOSM,
+                            "MapyCz" : _this.mapyCz
                         }).addTo(_this.map);
                     }
                 } else {
@@ -612,6 +622,7 @@ export default class Buttons {
                             "OpenTopoMap" : _this.openTopoMap,
                             "OpenHikingMap" : _this.openHikingMap,
                             "CyclOSM" : _this.cyclOSM,
+                            "MapyCz" : _this.mapyCz,
                             "IGN SCAN25 (FR)" : _this.ignMap
                         },{
                             "Strava Heatmap" : _this.stravaHeatmap
@@ -626,6 +637,7 @@ export default class Buttons {
                             "OpenTopoMap" : _this.openTopoMap,
                             "OpenHikingMap" : _this.openHikingMap,
                             "CyclOSM" : _this.cyclOSM,
+                            "MapyCz" : _this.mapyCz,
                             "IGN SCAN25 (FR)" : _this.ignMap
                         },{
                             "Strava Heatmap" : _this.stravaHeatmap
